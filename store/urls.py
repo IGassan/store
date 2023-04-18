@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from products.views import index, products
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'),               # добавляем путь к файлу чтобы он мог отображаться в проекте
+    path('products/', products, name='products'),               # добавляем путь к файлу чтобы он мог отображаться в проекте
 ]
