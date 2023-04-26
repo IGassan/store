@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 from products.views import index, products
 
@@ -23,3 +25,6 @@ urlpatterns = [
     path('', index, name='index'),               # добавляем путь к файлу чтобы он мог отображаться в проекте
     path('products/', products, name='products'),               # добавляем путь к файлу чтобы он мог отображаться в проекте
 ]
+
+if settings.DEBUG:
+    urlpatterns == static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
